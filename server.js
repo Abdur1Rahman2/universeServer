@@ -26,6 +26,15 @@ app.use('/users', userRouter);
 app.use('/communities', communityRouter);
 app.use('/userPost', userPostRouter);
 
+app.use((req, res, next) => {
+  console.log('Received:', req.method, req.url);
+  next();
+});
+
+app.post('/testpost', (req, res) => {
+  res.send('POST received!');
+});
+
 console.log('Environment variables loaded:', {
   DATABASE_URL: process.env.DATABASE_URL ? 'Set' : 'Not Set',
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET ? 'Set' : 'Not Set'
