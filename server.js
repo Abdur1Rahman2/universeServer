@@ -31,7 +31,8 @@ console.log('Environment variables loaded:', {
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET ? 'Set' : 'Not Set'
 });
 
-app.listen(3000, () => {
-  console.log("server is running on port 3000");
+const PORT = process.env.PORT || 3000; // 3000 for local, process.env.PORT for Azure
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
