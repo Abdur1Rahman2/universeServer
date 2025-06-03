@@ -6,10 +6,7 @@ const router = Router();
 
 router.post('/signup',createUser);
 
-router.post('/login', (req, res) => {
-  console.log("POST /users/login hit", req.body);
-  loginUser
-});
+router.post('/login', loginUser);
 
 router.patch('/changeProfilePhoto',changeProfilePhoto);
 
